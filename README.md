@@ -1,4 +1,4 @@
-# Esercizi Azure AI Content Understanding — Sessione da ~2 ore
+# Esercizi Azure AI Content Understanding
 
 Laboratorio pratico **da portale** (Azure AI Foundry → Content Understanding / Foundry Tools).
 Livello: intermedio-avanzato. Non "base base": si lavora con schemi custom, campi *generate*,
