@@ -1,0 +1,32 @@
+{
+  "description": "Analyzer per grafici/immagini - Esercizio 2. Riferimento campi (template Image).",
+  "baseAnalyzerId": "prebuilt-imageAnalyzer",
+  "config": {
+    "returnDetails": true
+  },
+  "fieldSchema": {
+    "fields": {
+      "chart_type": {
+        "type": "string",
+        "method": "classify",
+        "description": "Tipo di grafico",
+        "enum": ["pie", "bar", "line", "other"]
+      },
+      "title":      { "type": "string", "method": "extract", "description": "Titolo del grafico se presente" },
+      "data_series": {
+        "type": "array",
+        "method": "extract",
+        "description": "Serie di dati estratti dal grafico",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label":         { "type": "string", "description": "Etichetta della fetta/barra" },
+            "value_percent": { "type": "number", "description": "Valore percentuale associato" }
+          }
+        }
+      },
+      "dominant_segment": { "type": "string", "method": "generate", "description": "Etichetta del segmento con valore piu alto" },
+      "insight_summary":  { "type": "string", "method": "generate", "description": "Sintesi di 2 frasi sul trend principale" }
+    }
+  }
+}
