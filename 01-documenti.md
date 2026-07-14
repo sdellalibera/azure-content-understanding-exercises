@@ -1,11 +1,11 @@
 # 01 — Analisi Documenti
 
-**Categoria:** documenti · **Template portale:** Document · **Durata:** ~60 min (A guidato + B autonomo)
+**Categoria:** documenti · **Template portale:** Document
 
-| Esercizio | Modalità | Schema | Sample | Durata |
-|---|---|---|---|---|
-| A | Guidato | fornito (`schemi-json/01-invoice-schema.json`) | `invoice.pdf` | 30 min |
-| B | Autonomo | **da progettare** | `receipt.png` | 30 min |
+| Esercizio | Modalità | Schema | Sample |
+|---|---|---|---|
+| A | Guidato | fornito (`schemi-json/01-invoice-schema.json`) | `invoice.pdf` |
+| B | Autonomo | **da progettare** | `receipt.png` |
 
 ---
 

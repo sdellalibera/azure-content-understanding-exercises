@@ -1,4 +1,4 @@
-# Esercizi Azure AI Content Understanding — Sessione da ~2 ore
+# Esercizi Azure AI Content Understanding
 
 Laboratorio pratico **da portale** (Azure AI Foundry → Content Understanding / Foundry Tools).
 Livello: intermedio-avanzato. Non "base base": si lavora con schemi custom, campi *generate*,
@@ -7,7 +7,7 @@ classificazione + splitting e segmentazione semantica.
 ## Contenuto della cartella
 ```
 Esercizi-Azure-Content-Understanding/
-├─ README.md                      ← questo file (panoramica + timing)
+├─ README.md                      ← questo file (panoramica)
 ├─ 00-SETUP.md                    ← preparazione portale e prerequisiti
 ├─ 01-documenti.md                ← Documenti: A guidato + B autonomo
 ├─ 02-immagini.md                 ← Immagini: A guidato + B autonomo
@@ -25,17 +25,6 @@ Esercizi-Azure-Content-Understanding/
 
 Un file **per categoria**. Ogni file contiene: **A** (guidato, con schema fornito) e
 **B** (autonomo, schema da progettare); il file 03 aggiunge **C** (bonus RAG).
-
-## Timing consigliato
-| File | Esercizio | Durata |
-|---|---|---|
-| 00-SETUP | Setup portale + risorsa Foundry | 15 min |
-| 01-documenti | A guidato (30) + B autonomo (30) | 60 min |
-| 02-immagini | A guidato (25) + B autonomo (25) | 50 min |
-| 03-classificazione-segmentazione | A guidato (35) + B autonomo (35) + C bonus (15) | 85 min |
-
-**Percorso ~2h (guidato):** 00 → 01·A → 02·A → 03·A → 03·C.
-**Percorso completo (~3h30):** aggiungi gli esercizi **B** (autonomi) di ogni file.
 
 ## Obiettivi di apprendimento
 - Costruire **schemi custom** con campi `extract`, `generate`, `classify`.

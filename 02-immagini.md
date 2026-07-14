@@ -1,11 +1,11 @@
 # 02 — Analisi Immagini
 
-**Categoria:** immagini · **Template portale:** Image · **Durata:** ~50 min (A guidato + B autonomo)
+**Categoria:** immagini · **Template portale:** Image
 
-| Esercizio | Modalità | Schema | Sample | Durata |
-|---|---|---|---|---|
-| A | Guidato | fornito (`schemi-json/02-chart-schema.json`) | `pieChart.jpg` (+ 1 foto Unsplash) | 25 min |
-| B | Autonomo | **da progettare** | `pieChart.jpg` + 1 foto reale | 25 min |
+| Esercizio | Modalità | Schema | Sample |
+|---|---|---|---|
+| A | Guidato | fornito (`schemi-json/02-chart-schema.json`) | `pieChart.jpg` (+ 1 foto Unsplash) |
+| B | Autonomo | **da progettare** | `pieChart.jpg` + 1 foto reale |
 
 ---
 

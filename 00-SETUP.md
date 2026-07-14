@@ -1,4 +1,4 @@
-# 00 — Setup portale e prerequisiti (~15 min)
+# 00 — Setup portale e prerequisiti
 
 ## 1. Risorsa Azure
 1. Vai su **https://ai.azure.com** (Azure AI Foundry).

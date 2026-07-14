@@ -1,12 +1,12 @@
 # 03 — Classificazione & Segmentazione
 
-**Categoria:** classificazione/segmentazione · **Template portale:** Document (Classifier) · **Durata:** ~85 min
+**Categoria:** classificazione/segmentazione · **Template portale:** Document (Classifier)
 
-| Esercizio | Modalità | Schema | Sample | Durata |
-|---|---|---|---|---|
-| A | Guidato | fornito (`schemi-json/03-classifier-categories.json`) | `mixed_financial_docs.pdf` | 35 min |
-| B | Autonomo | **da progettare** | `mixed_financial_docs.pdf` | 35 min |
-| C | Bonus | fornito (opzioni) | PDF con figure/tabelle | 15 min |
+| Esercizio | Modalità | Schema | Sample |
+|---|---|---|---|
+| A | Guidato | fornito (`schemi-json/03-classifier-categories.json`) | `mixed_financial_docs.pdf` |
+| B | Autonomo | **da progettare** | `mixed_financial_docs.pdf` |
+| C | Bonus | fornito (opzioni) | PDF con figure/tabelle |
 
 > **Formato GA (importante).** La classificazione fa parte dell'*analyzer*: categorie in
 > **`config.contentCategories`**, split con **`config.enableSegment: true`**, categoria
