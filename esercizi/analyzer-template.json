@@ -1,0 +1,99 @@
+{
+  "baseAnalyzerId": "prebuilt-document",
+  "description": "Analyzer didattico per un conto hotel con soggiorno e movimenti",
+  "config": {
+    "enableOcr": true,
+    "enableLayout": true,
+    "returnDetails": true,
+    "estimateFieldSourceAndConfidence": true
+  },
+  "fieldSchema": {
+    "name": "conto_hotel",
+    "description": "Estrarre un solo conto anche se intestazione e riferimenti si ripetono su piu pagine",
+    "fields": {
+      "Hotel": {
+        "type": "string",
+        "method": "extract",
+        "description": "Nome della struttura alberghiera che emette il conto."
+      },
+      "Ospite": {
+        "type": "string",
+        "method": "extract",
+        "description": "Nome e cognome dell'ospite intestatario, non della struttura o del gruppo."
+      },
+      "NumeroConto": {
+        "type": "string",
+        "method": "extract",
+        "description": "Folio No., identificativo del conto. Non confonderlo con Confirmation No. o Booking No."
+      },
+      "Camera": {
+        "type": "string",
+        "method": "extract",
+        "description": "Numero della camera indicato come Room No."
+      },
+      "Arrivo": {
+        "type": "date",
+        "method": "extract",
+        "description": "Arrival. Interpretare le date del conto statunitense come MM-DD-YY e restituire YYYY-MM-DD."
+      },
+      "Partenza": {
+        "type": "date",
+        "method": "extract",
+        "description": "Departure. Interpretare le date del conto statunitense come MM-DD-YY e restituire YYYY-MM-DD."
+      },
+      "Movimenti": {
+        "type": "array",
+        "description": "Righe della tabella Date/Description/Charges/Credits, esclusi Total e Balance. Non duplicare le righe per intestazioni ripetute.",
+        "items": {
+          "type": "object",
+          "properties": {
+            "Data": {
+              "type": "date",
+              "method": "extract",
+              "description": "Data della riga, MM-DD-YY nel documento e YYYY-MM-DD in output."
+            },
+            "Descrizione": {
+              "type": "string",
+              "method": "extract",
+              "description": "Descrizione del movimento senza numero o scadenza della carta."
+            },
+            "Addebito": {
+              "type": "number",
+              "method": "extract",
+              "description": "Importo nella colonna Charges; assente se la cella e vuota."
+            },
+            "Accredito": {
+              "type": "number",
+              "method": "extract",
+              "description": "Importo nella colonna Credits; assente se la cella e vuota."
+            }
+          }
+        }
+      },
+      "TotaleAddebiti": {
+        "type": "number",
+        "method": "extract",
+        "description": "Importo della riga Total nella colonna Charges. La virgola separa le migliaia e il punto i decimali."
+      },
+      "TotaleAccrediti": {
+        "type": "number",
+        "method": "extract",
+        "description": "Importo della riga Total nella colonna Credits. Non e il saldo da pagare."
+      },
+      "Saldo": {
+        "type": "number",
+        "method": "extract",
+        "description": "Importo Balance ancora dovuto, anche quando vale zero."
+      },
+      "Sintesi": {
+        "type": "string",
+        "method": "generate",
+        "description": "Riassunto in italiano di massimo tre frasi sul soggiorno e sullo stato del pagamento, basato solo sul documento."
+      }
+    }
+  },
+  "models": {
+    "completion": "gpt-4.1",
+    "embedding": "text-embedding-3-large"
+  }
+}
