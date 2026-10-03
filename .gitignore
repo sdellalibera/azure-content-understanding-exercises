@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.env
+.env.*
+!.env.example
+esercizi/documenti/*
+!esercizi/documenti/README.md
+esercizi/analyzer-personalizzato.json
+soluzioni/output/
