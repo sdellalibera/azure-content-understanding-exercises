@@ -4,7 +4,7 @@ __pycache__/
 .env
 .env.*
 !.env.example
-esercizi/documenti/*
-!esercizi/documenti/README.md
-esercizi/analyzer-personalizzato.json
-soluzioni/output/
+esercizi/*.pdf
+esercizi/analyzer.json
+esercizi/analisi.json
+esercizi/contesto-llm.md
