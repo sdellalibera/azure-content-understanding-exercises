@@ -1,12 +1,10 @@
-# Versioni verificate insieme per questo laboratorio (integrazione CU in preview).
+# SDK Content Understanding in preview.
 azure-ai-contentunderstanding==1.2.0b3
-agent-framework-azure-contentunderstanding==1.0.0b260813
-agent-framework-core==1.19.0
-agent-framework-foundry==1.13.1
-azure-ai-projects>=2.2,<2.8
 azure-identity>=1.25,<2
 python-dotenv>=1.2,<2
-aiohttp>=3.9,<4
+pypdf>=6,<7
+reportlab>=4.4,<5
 jupyterlab>=4.4,<5
 ipykernel>=6.29,<8
 nbformat>=5.10,<6
+nbclient>=0.10,<1

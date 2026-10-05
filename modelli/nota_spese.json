@@ -1,0 +1,53 @@
+{
+  "baseAnalyzerId": "prebuilt-document",
+  "models": {
+    "completion": "prebuilt-analyzer-completion",
+    "embedding": "prebuilt-analyzer-embedding"
+  },
+  "config": {
+    "returnDetails": true,
+    "enableOcr": true,
+    "enableLayout": true,
+    "estimateFieldSourceAndConfidence": true
+  },
+  "fieldSchema": {
+    "name": "nota_spese",
+    "fields": {
+      "Dipendente": {
+        "type": "string",
+        "method": "extract",
+        "description": "Nome completo del dipendente."
+      },
+      "Progetto": {
+        "type": "string",
+        "method": "extract",
+        "description": "Codice progetto della trasferta."
+      },
+      "TotaleSpese": {
+        "type": "number",
+        "method": "extract",
+        "description": "Totale spese in EUR, senza duplicare il dettaglio di pagina 2."
+      },
+      "Anticipo": {
+        "type": "number",
+        "method": "extract",
+        "description": "Anticipo in EUR gia ricevuto dal dipendente."
+      },
+      "RimborsoDovuto": {
+        "type": "number",
+        "method": "extract",
+        "description": "Rimborso ancora dovuto in EUR, al netto dell'anticipo."
+      },
+      "StatoApprovazione": {
+        "type": "string",
+        "method": "extract",
+        "description": "Stato di approvazione della nota spese."
+      },
+      "Sintesi": {
+        "type": "string",
+        "method": "generate",
+        "description": "Sintesi in italiano di massimo due frasi: motivo della trasferta e rimborso dovuto."
+      }
+    }
+  }
+}

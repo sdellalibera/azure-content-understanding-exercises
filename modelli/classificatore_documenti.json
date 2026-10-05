@@ -1,0 +1,23 @@
+{
+  "baseAnalyzerId": "prebuilt-document",
+  "models": {
+    "completion": "prebuilt-analyzer-completion"
+  },
+  "description": "Classificazione didattica di ricevute hotel e ristoranti",
+  "config": {
+    "returnDetails": true,
+    "enableSegment": true,
+    "allowInPageSegments": false,
+    "contentCategories": {
+      "hotel_receipt": {
+        "description": "Hotel bills and folios for a stay, with room charges, arrival and departure dates, lodging taxes and payments. May include restaurant charges within the hotel bill."
+      },
+      "restaurant_receipt": {
+        "description": "Standalone restaurant or cafe receipts for meals and drinks, with food items, taxes, tips and totals. Not a hotel stay or folio."
+      },
+      "other": {
+        "description": "Documents that are neither hotel bills nor standalone restaurant receipts, such as letters, contracts or bank statements."
+      }
+    }
+  }
+}

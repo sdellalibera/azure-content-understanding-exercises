@@ -4,7 +4,10 @@ __pycache__/
 .env
 .env.*
 !.env.example
-esercizi/*.pdf
-esercizi/analyzer.json
-esercizi/analisi.json
-esercizi/contesto-llm.md
+soluzioni/output/
+soluzioni/analyzer.json
+soluzioni/analisi.json
+soluzioni/analisi-custom.json
+soluzioni/classificazione.json
+soluzioni/contesto-llm.md
+soluzioni/segmenti/
