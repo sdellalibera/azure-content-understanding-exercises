@@ -1,5 +1,6 @@
 # SDK Content Understanding in preview.
 azure-ai-contentunderstanding==1.2.0b3
+agent-framework-azure-contentunderstanding
 azure-identity>=1.25,<2
 python-dotenv>=1.2,<2
 pypdf>=6,<7

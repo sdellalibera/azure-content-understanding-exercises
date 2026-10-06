@@ -1,0 +1,12 @@
+{
+  "name": "cu-documents-datasource",
+  "description": "Documenti SharePoint di origine per la pipeline Content Understanding",
+  "type": "sharepoint",
+  "credentials": {
+    "connectionString": "SharePointOnlineEndpoint=https://<tenant-name>.sharepoint.com;ApplicationId=<application-client-id>;ApplicationSecret=<application-client-secret>;TenantId=<tenant-id>"
+  },
+  "container": {
+    "name": "useQuery",
+    "query": "includeLibrary=https://<tenant-name>.sharepoint.com/sites/<site-name>/Shared Documents"
+  }
+}

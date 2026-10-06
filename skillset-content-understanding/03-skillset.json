@@ -1,0 +1,106 @@
+{
+  "name": "cu-documents-skillset",
+  "description": "Chunking semantico, descrizione immagini e vettorializzazione con Content Understanding",
+  "skills": [
+    {
+      "@odata.type": "#Microsoft.Skills.Util.ContentUnderstandingSkill",
+      "name": "content-understanding",
+      "description": "Estrae chunk Markdown, immagini e metadati di posizione",
+      "context": "/document",
+      "modelName": "gpt-4.1",
+      "modelDeployment": "<chat-model-deployment>",
+      "chunkingProperties": {
+        "method": "semantic", 
+        "unit": "tokens",
+        "maximumLength": 500
+      },
+      "extractionOptions": [
+        "images",
+        "locationMetadata"
+      ],
+      "inputs": [
+        {
+          "name": "file_data",
+          "source": "/document/file_data"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_sections",
+          "targetName": "text_sections"
+        },
+        {
+          "name": "normalized_images",
+          "targetName": "normalized_images"
+        }
+      ]
+    },
+    {
+      "@odata.type": "#Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill",
+      "name": "chunk-embedding",
+      "description": "Crea un embedding per ogni chunk Markdown",
+      "context": "/document/text_sections/*",
+      "resourceUri": "https://<azure-openai-subdomain>.openai.azure.com",
+      "deploymentId": "text-embedding-3-small",
+      "modelName": "text-embedding-3-small",
+      "dimensions": 1536,
+      "apiKey": "<azure-openai-api-key>",
+      "inputs": [
+        {
+          "name": "text",
+          "source": "/document/text_sections/*/content"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "embedding",
+          "targetName": "text_vector"
+        }
+      ]
+    }
+  ],
+  "cognitiveServices": {
+    "@odata.type": "#Microsoft.Azure.Search.AIServicesByKey",
+    "description": "Risorsa Foundry fatturata per Content Understanding",
+    "subdomainUrl": "https://<foundry-resource-name>.services.ai.azure.com",
+    "key": "<foundry-resource-key>"
+  },
+  "indexProjections": {
+    "selectors": [
+      {
+        "targetIndexName": "cu-documents-index",
+        "parentKeyFieldName": "parent_id",
+        "sourceContext": "/document/text_sections/*",
+        "mappings": [
+          {
+            "name": "chunk",
+            "source": "/document/text_sections/*/content"
+          },
+          {
+            "name": "text_vector",
+            "source": "/document/text_sections/*/text_vector"
+          },
+          {
+            "name": "page_number_from",
+            "source": "/document/text_sections/*/locationMetadata/pageNumberFrom"
+          },
+          {
+            "name": "page_number_to",
+            "source": "/document/text_sections/*/locationMetadata/pageNumberTo"
+          },
+          {
+            "name": "image_path",
+            "source": "/document/text_sections/*/imagePath"
+          },
+          {
+            "name": "title",
+            "source": "/document/metadata_storage_name"
+          }
+        ]
+      }
+    ],
+    "parameters": {
+      "projectionMode": "skipIndexingParentDocuments"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "description": "Revisione agentica di un contratto di servizi",
+  "baseAnalyzerId": "prebuilt-document",
+  "models": {
+    "completion": "prebuilt-analyzer-completion"
+  },
+  "config": {
+    "workflow": "agentic"
+  },
+  "fieldSchema": {
+    "name": "revisione_contratto",
+    "fields": {
+      "Parti": {
+        "type": "string",
+        "method": "generate",
+        "description": "Elenca le ragioni sociali delle parti e il rispettivo ruolo. Usa solo il contenuto del contratto."
+      },
+      "DataDecorrenza": {
+        "type": "date",
+        "method": "generate",
+        "description": "Restituisci la data di decorrenza, distinguendola dalle date di firma."
+      },
+      "ValoreCalcolato": {
+        "type": "number",
+        "method": "generate",
+        "description": "Calcola in EUR il costo di attivazione più tutti i canoni mensili previsti per la durata iniziale."
+      },
+      "ValoreDichiarato": {
+        "type": "number",
+        "method": "generate",
+        "description": "Restituisci in EUR il valore totale dichiarato nel contratto."
+      },
+      "ValoriCoincidono": {
+        "type": "boolean",
+        "method": "generate",
+        "description": "Restituisci true solo se ValoreCalcolato e ValoreDichiarato coincidono."
+      },
+      "GiorniPreavviso": {
+        "type": "number",
+        "method": "generate",
+        "description": "Restituisci i giorni di preavviso richiesti per il recesso senza causa."
+      },
+      "EntrambeLePartiHannoFirmato": {
+        "type": "boolean",
+        "method": "generate",
+        "description": "Verifica visivamente la sezione firme e restituisci true solo se entrambe le parti hanno firmato."
+      },
+      "ObblighiPrincipali": {
+        "type": "string",
+        "method": "generate",
+        "description": "Riassumi gli obblighi principali di ciascuna parte, includendo SLA e scadenze."
+      },
+      "EsitoRevisione": {
+        "type": "string",
+        "method": "generate",
+        "description": "Restituisci APPROVABILE, DA_REVISIONARE o NON_APPROVABILE e motiva brevemente usando discrepanze economiche, firme e condizioni."
+      }
+    }
+  }
+}

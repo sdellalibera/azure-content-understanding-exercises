@@ -1,0 +1,17 @@
+{
+  "name": "cu-documents-indexer",
+  "description": "Indicizza i documenti SharePoint tramite Content Understanding",
+  "dataSourceName": "cu-documents-datasource",
+  "targetIndexName": "cu-documents-index",
+  "skillsetName": "cu-documents-skillset",
+  "parameters": {
+    "batchSize": 1,
+    "configuration": {
+      "dataToExtract": "contentAndMetadata",
+      "parsingMode": "default",
+      "allowSkillsetToReadFileData": true
+    }
+  },
+  "fieldMappings": [],
+  "outputFieldMappings": []
+}

@@ -1,0 +1,23 @@
+{
+  "baseAnalyzerId": "prebuilt-document",
+  "models": {
+    "completion": "prebuilt-analyzer-completion"
+  },
+  "description": "Segmentazione didattica di documenti diversi collocati nella stessa pagina",
+  "config": {
+    "returnDetails": true,
+    "enableSegment": true,
+    "allowInPageSegments": true,
+    "contentCategories": {
+      "expense_report": {
+        "description": "Nota spese aziendale con dipendente, progetto, trasferte, riepilogo e rimborso richiesto."
+      },
+      "restaurant_receipt": {
+        "description": "Ricevuta o scontrino di ristorante con pietanze, imponibile, IVA e totale."
+      },
+      "other": {
+        "description": "Contenuto che non è una nota spese aziendale né una ricevuta di ristorante."
+      }
+    }
+  }
+}
