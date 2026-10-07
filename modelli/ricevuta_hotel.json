@@ -1,0 +1,47 @@
+{
+  "baseAnalyzerId": "prebuilt-document",
+  "models": {
+    "completion": "prebuilt-analyzer-completion",
+    "embedding": "prebuilt-analyzer-embedding"
+  },
+  "config": {
+    "returnDetails": true,
+    "enableOcr": true,
+    "enableLayout": true
+  },
+  "fieldSchema": {
+    "name": "ricevuta_hotel",
+    "fields": {
+      "Hotel": {
+        "type": "string",
+        "method": "extract",
+        "description": "Nome dell'hotel che emette la ricevuta."
+      },
+      "Ospite": {
+        "type": "string",
+        "method": "extract",
+        "description": "Nome completo dell'ospite."
+      },
+      "NumeroRicevuta": {
+        "type": "string",
+        "method": "extract",
+        "description": "Numero della ricevuta del soggiorno (folio)."
+      },
+      "TotaleSoggiorno": {
+        "type": "number",
+        "method": "extract",
+        "description": "Totale degli addebiti del soggiorno. Non sommare nuovamente l'importo riportato nella conferma di pagamento."
+      },
+      "Valuta": {
+        "type": "string",
+        "method": "extract",
+        "description": "Codice della valuta degli importi del soggiorno."
+      },
+      "ImportoPagato": {
+        "type": "number",
+        "method": "extract",
+        "description": "Importo pagato per il soggiorno, riportato nella conferma di pagamento."
+      }
+    }
+  }
+}

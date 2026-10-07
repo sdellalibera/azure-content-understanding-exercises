@@ -26,8 +26,8 @@ Gli esercizi usano documenti PDF sintetici e mostrano come:
 | Esercizio | Obiettivo | Notebook |
 | --- | --- | --- |
 | 1 | Configurare l'ambiente e creare il client | [`01-client.ipynb`](esercizi/01-client.ipynb) |
-| 2 | Recuperare e usare l'analyzer prebuilt per ricevute di hotel | [`02-analyzer.ipynb`](esercizi/02-analyzer.ipynb) |
-| 3 | Analizzare un documento di due pagine | [`03-analisi.ipynb`](esercizi/03-analisi.ipynb) |
+| 2 | Analizzare un documento con l'analyzer prebuilt per ricevute di hotel | [`02-analisi.ipynb`](esercizi/02-analisi.ipynb) |
+| 3 | Creare un analyzer custom e analizzare un conto hotel di due pagine | [`03-analyzer.ipynb`](esercizi/03-analyzer.ipynb) |
 | 4 | Usare un analyzer custom e preparare l'input per un LLM | [`04-output-llm.ipynb`](esercizi/04-output-llm.ipynb) |
 | 5 | Classificare e segmentare un PDF multi-documento | [`05-classificazione.ipynb`](esercizi/05-classificazione.ipynb) |
 | 6 | Analizzare un documento con un agente MAF | [`06-agente-maf.ipynb`](esercizi/06-agente-maf.ipynb) |
@@ -115,11 +115,16 @@ Per ripetere un esercizio da uno stato pulito usa **Restart Kernel and Run All**
 
 ## Analyzer usati
 
-Gli esercizi 2 e 3 usano l'analyzer prebuilt
+L'esercizio 2 usa l'analyzer prebuilt
 `prebuilt-receipt.hotel`.
 
-Gli esercizi 4, 5, 7, 8 e 9 caricano invece le definizioni:
+L'esercizio 3 introduce la creazione di un analyzer custom; il 4 aggiunge la
+conversione del risultato in input per un LLM.
 
+Gli esercizi 3, 4, 5, 7, 8 e 9 caricano le definizioni:
+
+- [`ricevuta_hotel.json`](modelli/ricevuta_hotel.json), per estrarre campi
+  personalizzati da un conto hotel e dalla relativa conferma di pagamento;
 - [`nota_spese.json`](modelli/nota_spese.json), per estrarre i dati di una nota
   spese e restituire confidence e grounding;
 - [`classificatore_documenti.json`](modelli/classificatore_documenti.json), per
